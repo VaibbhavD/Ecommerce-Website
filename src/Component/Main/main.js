@@ -15,8 +15,8 @@ const Main = () => {
 
               <h5 class="card-title">Album 1</h5>
               <p class="card-text">$.12.99</p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
+              <a href="#" class="btn btn-success">
+                Buy
               </a>
             </div>
           </div>
@@ -29,8 +29,8 @@ const Main = () => {
 
               <h5 class="card-title">Album 2</h5>
               <p class="card-text">$.12.99</p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
+              <a href="#" class="btn btn-success">
+                Buy
               </a>
             </div>
           </div>
@@ -43,8 +43,8 @@ const Main = () => {
 
               <h5 class="card-title">Album 3</h5>
               <p class="card-text">$.12.99</p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
+              <a href="#" class="btn btn-success">
+                Buy
               </a>
             </div>
           </div>
@@ -57,8 +57,8 @@ const Main = () => {
 
               <h5 class="card-title">Album 4</h5>
               <p class="card-text">S$.12.99</p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
+              <a href="#" class="btn btn-success">
+                Buy
               </a>
             </div>
           </div>
