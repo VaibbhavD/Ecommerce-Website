@@ -1,6 +1,7 @@
 import React from "react";
+import CartButton from "./CartButton";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -43,6 +44,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <CartButton showcart={props.showcart} />
     </nav>
   );
 };

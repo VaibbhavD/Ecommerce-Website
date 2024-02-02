@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import Cart from "../Cart/Cart";
 
 const Main = () => {
   return (
@@ -57,9 +58,7 @@ const Main = () => {
 
               <h5 class="card-title">Album 4</h5>
               <p class="card-text">S$.12.99</p>
-              <a href="#" class="btn btn-success">
-                Buy
-              </a>
+              <Button className="btn btn-success">Buy</Button>
             </div>
           </div>
         </div>
