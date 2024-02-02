@@ -2,7 +2,7 @@ import React from "react";
 
 const ItemCart = (props) => {
   return (
-    <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded ">
+    <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 rounded ">
       <div class="mr-1">
         <img class="rounded" src={props.item.imageUrl} width="70" />
       </div>
@@ -19,6 +19,13 @@ const ItemCart = (props) => {
       </div>
       <div class="d-flex align-items-center">
         <i class="fa fa-trash mb-1 text-danger"></i>
+        <span
+          class="close"
+          className="cursur-pointer"
+          onClick={() => props.RemoveCart(props.item)}
+        >
+          &#10005;
+        </span>
       </div>
     </div>
   );

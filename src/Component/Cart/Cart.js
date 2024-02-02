@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemCart from "./ItemCart";
 import Modal from "../UI/Modal";
 
@@ -24,16 +24,23 @@ const cartElements = [
 ];
 
 const Cart = (props) => {
+  const [arr, setarr] = useState(cartElements);
+
+  const RemoveCart = (Item) => {
+    const temp = arr.filter((item) => item.imageUrl != Item.imageUrl);
+    setarr(temp);
+  };
+
   return (
     <Modal showcart={props.showcart}>
-      <div class="container mt-5 mb-5">
+      <div class=" mt-2 mb-2">
         <div class="d-flex justify-content-center row">
           <div class="col-md-8">
             <div class="p-2">
               <h4>Shopping cart</h4>
             </div>
-            {cartElements.map((item) => (
-              <ItemCart item={item} />
+            {arr.map((item) => (
+              <ItemCart item={item} RemoveCart={RemoveCart} />
             ))}
             <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded gap-3 ">
               <button
