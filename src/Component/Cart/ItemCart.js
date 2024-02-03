@@ -2,7 +2,7 @@ import React from "react";
 
 const ItemCart = (props) => {
   return (
-    <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 rounded ">
+    <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt--4 rounded">
       <div class="mr-1">
         <img class="rounded" src={props.item.imageUrl} width="70" />
       </div>
