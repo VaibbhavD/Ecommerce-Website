@@ -35,7 +35,7 @@ const Cart = (props) => {
   return (
     <Modal showcart={props.showcart}>
       <div class=" mt-2 mb-2">
-        <div class="d-flex justify-content-center row">
+        <div class="d-flex justify-content-center row w-100">
           <div class="col-md-8">
             <div class="p-2">
               <h4>Shopping cart</h4>
