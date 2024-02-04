@@ -1,5 +1,6 @@
 import React from "react";
 import CartButton from "./CartButton";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   return (
@@ -22,23 +23,22 @@ const Header = (props) => {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+              <NavLink
+                // to={"Home"}
+                class="nav-link active"
+                aria-current="page"
+              >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Features
-              </a>
+              <NavLink to={"/About"} class="nav-link">
+                About
+              </NavLink>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 Pricing
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">
-                Disabled
               </a>
             </li>
           </ul>

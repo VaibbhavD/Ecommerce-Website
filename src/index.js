@@ -6,11 +6,20 @@ import reportWebVitals from "./reportWebVitals";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ContextProvider from "./Store/ContextProvider";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "./Component/Pages/Layout";
+
+const router = createBrowserRouter([
+  {
+    path: "/About",
+    element: <Layout />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ContextProvider>
-    <App />
+    <RouterProvider router={router} />
   </ContextProvider>
 );
 
