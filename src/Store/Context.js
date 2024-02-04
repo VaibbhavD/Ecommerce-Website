@@ -1,9 +1,10 @@
 import React from "react";
 
 const ContextStore = React.createContext({
-  CartItem: [],
-  AddItems: () => {},
-  RemoveItem: () => {},
+  CartItems: [],
+  AddItems: (item) => {},
+  RemoveItem: (item) => {},
+  Order: () => {},
 });
 
 export default ContextStore;

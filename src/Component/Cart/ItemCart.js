@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import ContextStore from "../../Store/Context";
 
 const ItemCart = (props) => {
+  const context = useContext(ContextStore);
+
+  const RemoveCart = () => {
+    context.RemoveItem(props.item);
+  };
+
   return (
     <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt--4 rounded">
       <div class="mr-1">
@@ -15,15 +22,21 @@ const ItemCart = (props) => {
         <i class="fa fa-plus text-success"></i>
       </div>
       <div>
+        {/* <h5 class="text-grey">{}</h5> */}
+        <input
+          type="number"
+          placeholder={props.item.Qty}
+          min={props.item.Qty}
+          max={5}
+          step={1}
+        />
+      </div>
+      <div>
         <h5 class="text-grey">${props.item.price}</h5>
       </div>
       <div class="d-flex align-items-center">
         <i class="fa fa-trash mb-1 text-danger"></i>
-        <span
-          class="close"
-          className="cursur-pointer"
-          onClick={() => props.RemoveCart(props.item)}
-        >
+        <span class="close" className="cursur-pointer" onClick={RemoveCart}>
           &#10005;
         </span>
       </div>

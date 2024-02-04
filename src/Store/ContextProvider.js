@@ -5,7 +5,7 @@ const ContextProvider = (props) => {
   const [Items, setItems] = useState([]);
 
   const AddItems = (item) => {
-    setItems((prev) => [...prev, item]);
+    setItems((prev) => [...prev, { ...item }]);
   };
 
   const RemoveItem = (item) => {
@@ -13,10 +13,15 @@ const ContextProvider = (props) => {
     setItems(temp);
   };
 
+  const Order = () => {
+    setItems([]);
+  };
+
   const context = {
     CartItems: Items,
     AddItems: AddItems,
     RemoveItem: RemoveItem,
+    Order: Order,
   };
 
   return (

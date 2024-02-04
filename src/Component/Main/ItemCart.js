@@ -6,14 +6,14 @@ const ItemCart = (props) => {
 
   const SubmitHandler = () => {
     let add = 0;
-    context.CartItem.map((item) =>
+    context.CartItems.map((item) =>
       item.id === props.item.id
         ? ((add = 1), alert("This Item Already have in Cart!"))
         : null
     );
 
-    if ((add = 0)) {
-      context.AddItems(props.item);
+    if (add === 0) {
+      context.AddItems({ ...props.item, Qty: "1" });
     }
   };
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ItemCart from "./ItemCart";
 import Modal from "../UI/Modal";
+import ContextStore from "../../Store/Context";
 
 const cartElements = [
   {
@@ -24,11 +25,11 @@ const cartElements = [
 ];
 
 const Cart = (props) => {
-  const [arr, setarr] = useState(cartElements);
+  const context = useContext(ContextStore);
 
-  const RemoveCart = (Item) => {
-    const temp = arr.filter((item) => item.imageUrl != Item.imageUrl);
-    setarr(temp);
+  const order = () => {
+    alert("Your Purchase Order Successfully !");
+    context.Order();
   };
 
   return (
@@ -39,13 +40,14 @@ const Cart = (props) => {
             <div class="p-2">
               <h4>Shopping cart</h4>
             </div>
-            {arr.map((item) => (
-              <ItemCart item={item} RemoveCart={RemoveCart} />
+            {context.CartItems.map((item) => (
+              <ItemCart item={item} />
             ))}
             <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded gap-3 ">
               <button
                 class="btn btn-warning btn-block btn-lg ml-2 pay-button"
                 type="button"
+                onClick={order}
               >
                 Proceed to Pay
               </button>
