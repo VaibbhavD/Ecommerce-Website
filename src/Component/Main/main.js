@@ -4,24 +4,32 @@ import ItemCart from "./ItemCart";
 
 const Products = [
   {
-    title: "Colors",
+    title: "Album 1",
+    Des: "Colors",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    id: "a1",
   },
   {
-    title: "Black and white Colors",
+    title: "Album 2",
+    Des: "Black and white Colors",
     price: 50,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    id: "a2",
   },
   {
-    title: "Yellow and Black Colors",
+    title: "Album 3",
+    Des: "Yellow and Black Colors",
     price: 70,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    id: "a3",
   },
   {
-    title: "Blue Color",
+    title: "Album 4",
+    Des: "Blue Color",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    id: "a4",
   },
 ];
 
