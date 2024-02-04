@@ -6,16 +6,9 @@ import Footer from "./Component/Footer/Footer";
 import Cart from "./Component/Cart/Cart";
 
 function App() {
-  const [enable, setenable] = useState(false);
-
-  const showcart = () => {
-    setenable((prev) => !prev);
-  };
-
   return (
     <>
-      <Header showcart={showcart} />
-      {enable && <Cart showcart={showcart} />}
+      <Header />
       <Main />
       <Footer />
     </>
