@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div class="container-fluid">
+    <div class="container-fluid" data-bs-theme="dark">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-md">
           <a class="navbar-brand" href="#">

@@ -13,11 +13,8 @@ const Header = (props) => {
   return (
     <>
       {enable && <Cart showcart={showcart} />}
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
+      <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+        <div class="container-fluid ">
           <button
             class="navbar-toggler"
             type="button"
@@ -29,12 +26,15 @@ const Header = (props) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ">
+          <div
+            class="collapse navbar-collapse d-flex flex-row-reverse "
+            id="navbarNav"
+          >
+            <ul class="navbar-nav  ">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <NavLink to={"/"} className="nav-link " aria-current="page">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
                 <NavLink
