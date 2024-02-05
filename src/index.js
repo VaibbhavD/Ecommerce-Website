@@ -10,6 +10,7 @@ import Layout from "./Component/Pages/Layout";
 import StorePage from "./Component/Pages/Store";
 import About from "./Component/Pages/About";
 import Home from "./Component/Pages/Home";
+import Contact from "./Component/Pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,12 @@ const router = createBrowserRouter([
         element: <StorePage />,
       },
       {
-        path: "About",
+        path: "/About",
         element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
       },
     ],
   },

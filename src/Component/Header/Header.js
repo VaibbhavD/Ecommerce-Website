@@ -50,6 +50,11 @@ const Header = (props) => {
                   About
                 </NavLink>
               </li>
+              <li class="nav-item">
+                <NavLink to={"/Contact"} className="nav-link">
+                  Contact Us
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
