@@ -15,7 +15,12 @@ const Contact = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => alert("Our Team Contact You Within 24 Hours"))
+      .then(
+        (document.getElementById("inputname").value = ""),
+        (document.getElementById("inputEmail3").value = ""),
+        (document.getElementById("inputNo").value = "")
+      );
   }
 
   return (
@@ -32,6 +37,7 @@ const Contact = () => {
               id="inputname"
               name="name"
               placeholder="Email"
+              required
             />
           </div>
         </div>
@@ -46,6 +52,7 @@ const Contact = () => {
               id="inputEmail3"
               name="Email"
               placeholder="Password"
+              required
             />
           </div>
         </div>
@@ -60,6 +67,7 @@ const Contact = () => {
               id="inputNo"
               name="No"
               placeholder="Mobil No"
+              required
             />
           </div>
         </div>
