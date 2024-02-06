@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ContextProvider from "./Store/ContextProvider";
@@ -11,6 +10,7 @@ import StorePage from "./Component/Pages/Store";
 import About from "./Component/Pages/About";
 import Home from "./Component/Pages/Home";
 import Contact from "./Component/Pages/ContactUs";
+import ProductDetails from "./Component/Pages/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/Store",
         element: <StorePage />,
+      },
+      {
+        path: "/Store/:productId",
+        element: <ProductDetails />,
       },
       {
         path: "/About",
