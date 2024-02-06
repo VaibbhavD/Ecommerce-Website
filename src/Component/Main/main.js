@@ -1,39 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container } from "react-bootstrap";
 import ItemCart from "./ItemCart";
-
-const Products = [
-  {
-    title: "Album 1",
-    Des: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    id: "a1",
-  },
-  {
-    title: "Album 2",
-    Des: "Black and white Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    id: "a2",
-  },
-  {
-    title: "Album 3",
-    Des: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    id: "a3",
-  },
-  {
-    title: "Album 4",
-    Des: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    id: "a4",
-  },
-];
+import ContextStore from "../../Store/Context";
 
 const Main = () => {
+  const context = useContext(ContextStore);
+  const Products = context.Products;
+
   return (
     <Container>
       <div class="container text-center mt-5">

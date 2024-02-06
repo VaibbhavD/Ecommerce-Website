@@ -1,8 +1,13 @@
 import React, { useContext } from "react";
 import ContextStore from "../../Store/Context";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import ProductDetails from "../Pages/ProductDetails";
 
 const ItemCart = (props) => {
   const context = useContext(ContextStore);
+  const param = useParams();
+  console.log(param.productId);
 
   const SubmitHandler = () => {
     let add = 0;
@@ -20,7 +25,10 @@ const ItemCart = (props) => {
   return (
     <div className="card-body m-5 m-10">
       <h3 class="card-title">{props.item.title}</h3>
-      <img src={props.item.imageUrl} alt="..." />
+      <Link to={"/Store/" + props.item.id}>
+        {" "}
+        <img src={props.item.imageUrl} alt="..." />
+      </Link>
 
       <h5 class="card-title">{props.item.Des}</h5>
       <p class="card-text">$.{props.item.price}</p>
