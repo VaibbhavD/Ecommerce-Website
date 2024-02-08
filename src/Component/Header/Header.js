@@ -36,7 +36,9 @@ const Header = (props) => {
             id="navbarNav"
           >
             <ul class="navbar-nav  ">
-              {Cartbtn && <CartButton showcart={showcart} />}
+              {context.isLoggedIn && Cartbtn && (
+                <CartButton showcart={showcart} />
+              )}
               {context.isLoggedIn && (
                 <>
                   <li class="nav-item">
@@ -72,6 +74,7 @@ const Header = (props) => {
                       onClick={() => {
                         context.Logout();
                         Navigate("/login");
+                        alert("Log Out Successfull !");
                       }}
                     >
                       LogOut

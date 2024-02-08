@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Outlet } from "react-router-dom";
+import { Fragment } from "react";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <>
+    <Fragment>
       <Header />
-      <Outlet />
+      <main>{props.children}</main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 export default Layout;

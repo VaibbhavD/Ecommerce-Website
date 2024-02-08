@@ -50,7 +50,7 @@ const Login = () => {
             if (isLogin) {
               context.Login(data.idToken);
               Autologout();
-              Navigate("/");
+              Navigate("/Store");
             }
           });
           alert(message);
@@ -91,11 +91,11 @@ const Login = () => {
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={SubmitHandler}>
         <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
+          <label htmlFor="email"> Email</label>
           <input type="email" id="email" ref={emailref} required />
         </div>
         <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
+          <label htmlFor="password"> Password</label>
           <input type="password" id="password" ref={passwordref} required />
         </div>
         <div className={classes.actions}>
@@ -113,7 +113,9 @@ const Login = () => {
             className={classes.toggle}
             onClick={switchAuthModeHandler}
           >
-            {isLogin ? "Create new account" : "Login with existing account"}
+            {isLogin
+              ? "Create new account- Sing Up"
+              : "Login with existing account"}
           </button>
         </div>
       </form>
