@@ -6,7 +6,7 @@ const CartButton = (props) => {
 
   return (
     <button
-      className="btn btn-secondary btn-lg active m-1"
+      className="btn btn-secondary btn-sm active"
       onClick={() => props.showcart()}
     >
       <h5>Cart{context.CartItems.length}</h5>
