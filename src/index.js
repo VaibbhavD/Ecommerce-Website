@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
@@ -11,16 +11,16 @@ import About from "./Component/Pages/About";
 import Home from "./Component/Pages/Home";
 import Contact from "./Component/Pages/ContactUs";
 import ProductDetails from "./Component/Pages/ProductDetails";
+import Login from "./Component/Login/LoginForm";
+import AuthContextProvider from "./Store/AuthContextProvider";
+import AuthContext from "./Store/Auth-Context";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
+      { path: "/", element: <Home /> },
       {
         path: "/Store",
         element: <StorePage />,
@@ -37,15 +37,22 @@ const router = createBrowserRouter([
         path: "/Contact",
         element: <Contact />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
   },
 ]);
+// const context = useContext(AuthContext);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ContextProvider>
-    <RouterProvider router={router}></RouterProvider>
-  </ContextProvider>
+  <AuthContextProvider>
+    <ContextProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </ContextProvider>
+  </AuthContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
