@@ -24,7 +24,8 @@ const Contact = () => {
   }
 
   return (
-    <div class="mt-5 mb-5 ">
+    <div class="mt-5 mb-5 text-center">
+      <h1>CONTACT US</h1>
       <form class="w-50 m-auto" onSubmit={SubmitHandler}>
         <div class="form-group row m-5">
           <label for="inputname" class="col-sm-2 col-form-label">
