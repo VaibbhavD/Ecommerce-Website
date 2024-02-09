@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ContextStore from "./Context";
+import AuthContext from "./Auth-Context";
 
 const Products = [
   {
@@ -34,9 +35,10 @@ const Products = [
 
 const ContextProvider = (props) => {
   const [Items, setItems] = useState([]);
+  const Auth_Context = useContext(AuthContext);
 
   const AddItems = (item) => {
-    setItems((prev) => [...prev, { ...item }]);
+    setItems(item);
   };
 
   const RemoveItem = (item) => {
@@ -47,6 +49,15 @@ const ContextProvider = (props) => {
   const Order = () => {
     setItems([]);
   };
+
+  useEffect(() => {
+    fetch(
+      "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+        Auth_Context.Email
+    )
+      .then((res) => res.json())
+      .then((data) => context.AddItems(data));
+  }, [Auth_Context.Login]);
 
   const context = {
     Products: Products,

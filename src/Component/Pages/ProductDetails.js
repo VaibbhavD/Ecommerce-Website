@@ -13,8 +13,6 @@ const ProductDetails = () => {
     }
   });
 
-  console.log(Product);
-
   return (
     <>
       <body>
