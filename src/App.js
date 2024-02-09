@@ -8,6 +8,7 @@ import Login from "./Component/Login/LoginForm";
 import AuthContext from "./Store/Auth-Context";
 import Home from "./Component/Pages/Home";
 import Contact from "./Component/Pages/ContactUs";
+import ProductDetails from "./Component/Pages/ProductDetails";
 
 function App() {
   const context = useContext(AuthContext);
@@ -24,6 +25,9 @@ function App() {
           {context.isLoggedIn && <Route path="/About" element={<About />} />}
           {context.isLoggedIn && (
             <Route path="/Contact" element={<Contact />} />
+          )}
+          {context.isLoggedIn && (
+            <Route path="/Store/:productId" element={<ProductDetails />} />
           )}
           {!context.isLoggedIn && <Route path="*" element={<Login />} />}
         </Routes>
