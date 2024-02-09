@@ -48,7 +48,7 @@ const Login = () => {
         if (res.ok) {
           res.json().then((data) => {
             if (isLogin) {
-              context.Login(data.idToken);
+              context.Login(data.idToken, emailref.current.value);
               Autologout();
               Navigate("/Store");
             }
