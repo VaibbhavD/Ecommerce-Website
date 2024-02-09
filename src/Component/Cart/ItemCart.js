@@ -1,11 +1,32 @@
 import React, { useContext } from "react";
 import ContextStore from "../../Store/Context";
+import AuthContext from "../../Store/Auth-Context";
 
 const ItemCart = (props) => {
   const context = useContext(ContextStore);
+  const Auth_Context = useContext(AuthContext);
 
   const RemoveCart = () => {
     context.RemoveItem(props.item);
+
+    fetch(
+      "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+        Auth_Context.Email +
+        "/" +
+        props.item._id,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        if (res.ok) {
+          alert("Cart Item Delete SuccessFully !");
+        }
+      })
+      .then((res) => console.log(res));
   };
 
   return (
