@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ContextStore from "../../Store/Context";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import ProductDetails from "../Pages/ProductDetails";
+import AuthContext from "../../Store/Auth-Context";
 
 const ItemCart = (props) => {
   const context = useContext(ContextStore);
-  const param = useParams();
-  console.log(param.productId);
+  const Auth_Context = useContext(AuthContext);
 
   const SubmitHandler = () => {
     let add = 0;
@@ -18,7 +16,25 @@ const ItemCart = (props) => {
     );
 
     if (add === 0) {
-      context.AddItems({ ...props.item, Qty: "1" });
+      const item = { ...props.item, Qty: "1" };
+      fetch(
+        "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+          Auth_Context.Email,
+        {
+          method: "POST",
+          body: JSON.stringify(item),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      ).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => context.AddItems(data));
+          alert("Item Added To Cart");
+        } else {
+          alert("Error");
+        }
+      });
     }
   };
 
@@ -33,7 +49,7 @@ const ItemCart = (props) => {
       <h5 class="card-title">{props.item.Des}</h5>
       <p class="card-text">$.{props.item.price}</p>
       <button class="btn btn-success" onClick={SubmitHandler}>
-        Buy
+        Add Cart
       </button>
     </div>
   );
