@@ -3,13 +3,11 @@ import ItemCart from "./ItemCart";
 import Modal from "../UI/Modal";
 import ContextStore from "../../Store/Context";
 import AuthContext from "../../Store/Auth-Context";
+import { CrudUrl } from "../../Store/CrudUrl";
 
 const Cart = () => {
   useEffect(() => {
-    fetch(
-      "https://crudcrud.com/api/88ee8aeaa55d45dfaeb35766ed617c6d/" +
-        Auth_Context.Email
-    )
+    fetch(CrudUrl + Auth_Context.Email)
       .then((res) => res.json())
       .then((data) => context.UpdateCart(data));
   }, []);

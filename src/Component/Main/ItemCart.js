@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ContextStore from "../../Store/Context";
 import { Link } from "react-router-dom";
 import AuthContext from "../../Store/Auth-Context";
+import { CrudUrl } from "../../Store/CrudUrl";
 
 const ItemCart = (props) => {
   const context = useContext(ContextStore);
@@ -17,17 +18,13 @@ const ItemCart = (props) => {
 
     if (add === 0) {
       const item = { ...props.item, Qty: "1" };
-      fetch(
-        "https://crudcrud.com/api/88ee8aeaa55d45dfaeb35766ed617c6d/" +
-          Auth_Context.Email,
-        {
-          method: "POST",
-          body: JSON.stringify(item),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      ).then((res) => {
+      fetch(CrudUrl + Auth_Context.Email, {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }).then((res) => {
         if (res.ok) {
           res.json().then((data) => context.AddItems(data));
           alert("Item Added To Cart");
