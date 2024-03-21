@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
+import ContextStore from "../../Store/Context";
 
-const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={() => props.showcart()} />;
+const Backdrop = () => {
+  const context = useContext(ContextStore);
+  return (
+    <div
+      className={classes.backdrop}
+      onClick={() => context.enableShowCart()}
+    />
+  );
 };
 const ModelOverlay = (props) => {
   return (
@@ -17,7 +24,7 @@ const portal = document.getElementById("overlay");
 const Modal = (props) => {
   return (
     <>
-      {ReactDOM.createPortal(<Backdrop showcart={props.showcart} />, portal)}
+      {ReactDOM.createPortal(<Backdrop />, portal)}
       {ReactDOM.createPortal(
         <ModelOverlay>{props.children}</ModelOverlay>,
         portal
