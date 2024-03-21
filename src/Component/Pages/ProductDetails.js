@@ -10,7 +10,7 @@ const ProductDetails = () => {
   // const [Product, SeProduct] = useState({});
 
   const Product = context.Products.find((item) => item.id == Params.productId);
-  // SeProduct(Product);
+  console.log(Product);
 
   const SubmitHandler = () => {
     let add = 0;
@@ -67,22 +67,19 @@ const ProductDetails = () => {
                   />
                 </div>
                 <div class="col-md-6">
-                  <div class="small mb-1">{Product.title}</div>
-                  <h1 class="display-5 fw-bolder">Shop item template</h1>
-                  <div class="fs-5 mb-5">
-                    <span class="text-decoration-line-through">
-                      ${Product.price + 10}
+                  <div class="small mb-1">{Product.category}</div>
+                  <h1 class="display-5 fw-bolder">{Product.title}</h1>
+                  <p class="">{Product.description}</p>
+                  <div class=" mb-5">
+                    <p class=" fs-5"> Rating- {Product.rating} </p>
+                    <span class="text-success fs-5"> ${Product.price} </span>
+                    <span class="text-danger">
+                      {" "}
+                      {Product.discountPercentage}%
                     </span>
-                    <span> ${Product.price}</span>
                   </div>
-                  <p class="lead">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Praesentium at dolorem quidem modi. Nam sequi consequatur
-                    obcaecati excepturi alias magni, accusamus eius blanditiis
-                    delectus ipsam minima ea iste laborum vero?
-                  </p>
-                  <button class="btn btn-success" onClick={SubmitHandler}>
-                    Add Cart
+                  <button class="btn btn-success px-5" onClick={SubmitHandler}>
+                    Buy
                   </button>
                 </div>
               </div>
