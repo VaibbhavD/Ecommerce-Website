@@ -55,11 +55,15 @@ const ContextProvider = (props) => {
   };
 
   const UpdateCart = (item) => {
-    setItems(item);
+    if (item) {
+      setItems(item);
+    }
   };
 
   const updateProducts = (data) => {
-    SetProducts(data);
+    if (data) {
+      SetProducts(data);
+    }
   };
 
   useEffect(async () => {
