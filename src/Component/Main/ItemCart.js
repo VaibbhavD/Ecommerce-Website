@@ -18,7 +18,7 @@ const ItemCart = (props) => {
     if (add === 0) {
       const item = { ...props.item, Qty: "1" };
       fetch(
-        "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+        "https://crudcrud.com/api/88ee8aeaa55d45dfaeb35766ed617c6d/" +
           Auth_Context.Email,
         {
           method: "POST",
@@ -39,19 +39,31 @@ const ItemCart = (props) => {
   };
 
   return (
-    <div className="card-body m-5 m-10">
-      <h3 class="card-title">{props.item.title}</h3>
-      <Link to={"/Store/" + props.item.id}>
-        {" "}
-        <img src={props.item.imageUrl} alt="..." />
-      </Link>
-
-      <h5 class="card-title">{props.item.Des}</h5>
-      <p class="card-text">$.{props.item.price}</p>
-      <button class="btn btn-success" onClick={SubmitHandler}>
-        Add Cart
-      </button>
-    </div>
+    <>
+      <div class="card text-black m-3">
+        <a href={`/Store/${props.item.id}`}>
+          <img
+            src={props.item.images[0]}
+            class="card-img-top"
+            alt="Apple Computer"
+          />
+        </a>
+        <div class="card-body">
+          <div class="text-center">
+            <h5 class="card-title">Believing is seeing</h5>
+            <p class="text-muted mb-4">{props.item.title}</p>
+          </div>
+          <div class="d-flex justify-content-between total font-weight-bold mt-4">
+            <span>Price</span>
+            <span>${props.item.price}</span>
+          </div>
+        </div>
+        <button class="btn btn-success" onClick={SubmitHandler}>
+          Add Cart
+        </button>
+      </div>
+      {/* </div> */}
+    </>
   );
 };
 export default ItemCart;
