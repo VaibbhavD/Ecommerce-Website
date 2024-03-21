@@ -10,7 +10,7 @@ const ItemCart = (props) => {
     context.RemoveItem(props.item);
 
     fetch(
-      "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+      "https://crudcrud.com/api/88ee8aeaa55d45dfaeb35766ed617c6d/" +
         Auth_Context.Email +
         "/" +
         props.item._id,
@@ -31,9 +31,7 @@ const ItemCart = (props) => {
 
   return (
     <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt--4 rounded">
-      <div class="mr-1">
-        <img class="rounded" src={props.item.imageUrl} width="70" />
-      </div>
+      <div class="mr-1">{/* <img class="rounded" } width="70" /> */}</div>
       <div class="d-flex flex-column align-items-center product-details">
         <span class="font-weight-bold">{props.item.title}</span>
       </div>
