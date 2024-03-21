@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
+import React, { lazy, useContext, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Component/Pages/Layout";
-import StorePage from "./Component/Pages/Store";
-import About from "./Component/Pages/About";
-import Login from "./Component/Login/LoginForm";
 import AuthContext from "./Store/Auth-Context";
-import Home from "./Component/Pages/Home";
-import Contact from "./Component/Pages/ContactUs";
-import ProductDetails from "./Component/Pages/ProductDetails";
+
+const StorePage = lazy(() => import("./Component/Pages/Store"));
+const Home = lazy(() => import("./Component/Pages/Home"));
+const About = lazy(() => import("./Component/Pages/About"));
+const Login = lazy(() => import("./Component/Login/LoginForm"));
+const Contact = lazy(() => import("./Component/Pages/ContactUs"));
+const ProductDetails = lazy(() => import("./Component/Pages/ProductDetails"));
 
 function App() {
   const context = useContext(AuthContext);
@@ -17,19 +18,76 @@ function App() {
     <Layout>
       <main>
         <Routes>
-          {!context.isLoggedIn && <Route path="/login" element={<Login />} />}
-          {context.isLoggedIn && <Route path="/" element={<Home />} />}
-          {context.isLoggedIn && (
-            <Route path="/Store" element={<StorePage />} />
+          {!context.isLoggedIn && (
+            <Route
+              path="/login"
+              element={
+                <Suspense>
+                  <Login />
+                </Suspense>
+              }
+            />
           )}
-          {context.isLoggedIn && <Route path="/About" element={<About />} />}
           {context.isLoggedIn && (
-            <Route path="/Contact" element={<Contact />} />
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<p>...Loading</p>}>
+                  <Home />
+                </Suspense>
+              }
+            />
           )}
           {context.isLoggedIn && (
-            <Route path="/Store/:productId" element={<ProductDetails />} />
+            <Route
+              path="/Store"
+              element={
+                <Suspense>
+                  <StorePage />
+                </Suspense>
+              }
+            />
           )}
-          {!context.isLoggedIn && <Route path="*" element={<Login />} />}
+          {context.isLoggedIn && (
+            <Route
+              path="/About"
+              element={
+                <Suspense>
+                  <About />
+                </Suspense>
+              }
+            />
+          )}
+          {context.isLoggedIn && (
+            <Route
+              path="/Contact"
+              element={
+                <Suspense>
+                  <Contact />
+                </Suspense>
+              }
+            />
+          )}
+          {context.isLoggedIn && (
+            <Route
+              path="/Store/:productId"
+              element={
+                <Suspense>
+                  <ProductDetails />
+                </Suspense>
+              }
+            />
+          )}
+          {!context.isLoggedIn && (
+            <Route
+              path="*"
+              element={
+                <Suspense>
+                  <Login />
+                </Suspense>
+              }
+            />
+          )}
         </Routes>
       </main>
     </Layout>
