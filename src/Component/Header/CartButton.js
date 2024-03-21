@@ -1,15 +1,21 @@
 import React, { useContext, useState } from "react";
 import ContextStore from "../../Store/Context";
 
-const CartButton = (props) => {
+const CartButton = () => {
   const context = useContext(ContextStore);
 
   return (
     <button
-      className="btn btn-secondary btn-sm active"
-      onClick={() => props.showcart()}
+      class="btn btn-outline-light"
+      type="submit"
+      onClick={() => context.enableShowCart()}
     >
-      <h5>Cart{context.CartItems.length}</h5>
+      <i class="bi-cart-empty me-1"></i>
+      Cart
+      <span class="badge bg-light text-black ms-1 rounded-pill">
+        {" "}
+        {context.CartItems.length}
+      </span>
     </button>
   );
 };
