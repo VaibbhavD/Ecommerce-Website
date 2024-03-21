@@ -4,19 +4,18 @@ import Modal from "../UI/Modal";
 import ContextStore from "../../Store/Context";
 import AuthContext from "../../Store/Auth-Context";
 
-const Cart = (props) => {
-  const context = useContext(ContextStore);
-  const Auth_Context = useContext(AuthContext);
-  const [cart, setcart] = useState([]);
-
+const Cart = () => {
   useEffect(() => {
     fetch(
-      "https://crudcrud.com/api/19bffb556e4d4c3180cc77d051f5deec/" +
+      "https://crudcrud.com/api/88ee8aeaa55d45dfaeb35766ed617c6d/" +
         Auth_Context.Email
     )
       .then((res) => res.json())
-      .then((data) => (setcart(data), context.AddItems(data)));
+      .then((data) => context.UpdateCart(data));
   }, []);
+
+  const context = useContext(ContextStore);
+  const Auth_Context = useContext(AuthContext);
 
   console.log(Auth_Context.Email);
   const order = () => {
@@ -25,14 +24,14 @@ const Cart = (props) => {
   };
 
   return (
-    <Modal showcart={props.showcart}>
+    <Modal>
       <div class=" mt-2 mb-2">
         <div class="d-flex justify-content-center row w-100">
           <div class="col-md-8">
             <div class="p-2">
               <h4>Shopping cart</h4>
             </div>
-            {cart.map((item) => (
+            {context.CartItems.map((item) => (
               <ItemCart item={item} />
             ))}
             <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded gap-3 ">
@@ -46,7 +45,7 @@ const Cart = (props) => {
               <button
                 class="btn btn-warning btn-block btn-lg  pay-button"
                 type="button"
-                onClick={() => props.showcart()}
+                onClick={() => context.enableShowCart()}
               >
                 Cancel
               </button>
