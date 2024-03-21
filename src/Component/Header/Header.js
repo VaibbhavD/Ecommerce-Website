@@ -3,23 +3,21 @@ import CartButton from "./CartButton";
 import { NavLink, useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import AuthContext from "../../Store/Auth-Context";
+import ContextStore from "../../Store/Context";
 
 const Header = (props) => {
-  const [enable, setenable] = useState(false);
   const [Cartbtn, setCartbtn] = useState(false);
+  const contextstore = useContext(ContextStore);
 
   const context = useContext(AuthContext);
   const Navigate = useNavigate();
 
-  const showcart = () => {
-    setenable((prev) => !prev);
-  };
-
   return (
     <>
-      {enable && <Cart showcart={showcart} />}
+      {contextstore.Showcart && <Cart />}
       <nav class="navbar navbar-expand-lg bg-dark p-3 " data-bs-theme="dark">
-        <div class="container-fluid">
+        <div class="container-fluid text-white">
+          <h3>EcommerCe</h3>
           <button
             class="navbar-toggler"
             type="button"
@@ -29,16 +27,14 @@ const Header = (props) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon text-white">qwjhb</span>
           </button>
           <div
-            class="collapse navbar-collapse d-flex flex-row-reverse"
+            class="collapse text-white navbar-collapse d-flex flex-row-reverse"
             id="navbarNav"
           >
             <ul class="navbar-nav  ">
-              {context.isLoggedIn && Cartbtn && (
-                <CartButton showcart={showcart} />
-              )}
+              {context.isLoggedIn && Cartbtn && <CartButton />}
               {context.isLoggedIn && (
                 <>
                   <li class="nav-item">
