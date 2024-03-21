@@ -14,7 +14,9 @@ const Home = () => {
             <td>DETROIT, MI</td>
             <td>DTE ENERGY MUSIC THEATRE</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
           <tr>
@@ -22,7 +24,9 @@ const Home = () => {
             <td>TORONTO,ON</td>
             <td>BUDWEISER STAGE</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
           <tr>
@@ -30,7 +34,9 @@ const Home = () => {
             <td>BRISTPO </td>
             <td>MUSIC THEATRE</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
           <tr>
@@ -38,7 +44,9 @@ const Home = () => {
             <td>SPAIN MI</td>
             <td>MOVIES AND CINEMA</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
           <tr>
@@ -46,7 +54,9 @@ const Home = () => {
             <td>LONDON</td>
             <td>CONCORD PAVILLION</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
           <tr>
@@ -54,7 +64,9 @@ const Home = () => {
             <td>T-MOBILE</td>
             <td>JUGGY</td>
             <td>
-              <button className="btn btn-secondary">BUY TICKETS</button>
+              <a href="https://www.goibibo.com/" target="_blank">
+                <button className="btn btn-secondary">BUY TICKETS</button>
+              </a>
             </td>
           </tr>
         </tbody>
