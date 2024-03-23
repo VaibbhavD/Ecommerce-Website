@@ -1,2 +1,2 @@
 export const CrudUrl =
-  "https://crudcrud.com/api/dd75ab7c37c34384aa3e65b2e5ca309e/";
+  "https://crudcrud.com/api/34faeb0c1686417699e3ffe3c69179e5/";
